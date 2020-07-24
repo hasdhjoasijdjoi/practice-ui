@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom'
 
-function App() {
+import Average from "./component/Average.js";
+import Counter from "./component/Counter.js";
+import Landing from "./component/Landing.js";
+import Lists from "./component/Lists.js";
+import List from "./component/List.js";
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Route path= "/" component={Landing} exact={true} />
+    <Route path= "/average" component={() => <Average initialList={[]} initialNumber={0}/>} />
+    <Route path ="/counter" component={Counter} />
+    <Route path ="/lists" component={Lists} />
+    <Route path="/list/:_id" component={List} />
     </div>
   );
 }
 
 export default App;
+//<Route path="/list/:username" component={List} />
